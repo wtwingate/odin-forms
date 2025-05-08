@@ -1,0 +1,22 @@
+<h1>Edit User</h1>
+
+<%= form_with model: @user do |form| %>
+  <p>
+    <%= form.label :username, "Your username" %>
+    <%= form.text_field :username %>
+  </p>
+
+  <p>
+    <%= form.label :email, "Your email" %>
+    <%= form.email_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :password, "Your password" %>
+    <%= form.password_field :password %>
+  </p>
+
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "Cancel", user_path(@user) %>
