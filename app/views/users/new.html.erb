@@ -1,5 +1,13 @@
 <h1>New User</h1>
 
+<% unless @user.errors.empty? %>
+  <ul>
+    <% @user.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @user do |form| %>
   <p>
     <%= form.label :username, "Your username:" %>
@@ -18,6 +26,8 @@
 
   <%= form.submit %>
 <% end %>
+
+<%= link_to "Cancel", users_path %>
 
 <!--
 <form action="/users" method="post" accept-charset="utf-8" data-turbo="false">

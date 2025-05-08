@@ -1,5 +1,13 @@
 <h1>Edit User</h1>
 
+<% unless @user.errors.empty? %>
+  <ul>
+    <% @user.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @user do |form| %>
   <p>
     <%= form.label :username, "Your username" %>
